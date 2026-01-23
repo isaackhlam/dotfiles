@@ -43,6 +43,43 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+filetype plugin indent on   " allow auto-indenting depending on file type
+" ====================
+" General Settings
+" ====================
+set nocompatible            " disable compatibility to old-time vi
+set number                  " add line numbers
+set cursorline              " highlight current cursorline
+set showmatch               " show matching bracket
+set wildmode=longest,list   " get bash-like tab completions in command mode
+" open new split panes to right and below
+set splitbelow
+set splitright
+set clipboard=unnamedplus   " using system clipboard
+set mouse=av                " middle-click paste with
+set ttyfast                 " Speed up scrolling in Vim
+set cc=80                   " set an 80 column border for good coding style
+
+" Searching
+set ignorecase              " case insensitive search
+set smartcase               " case sensitive search if search contain upper
+set hlsearch                " highlight search
+set incsearch               " incremental search
+
+" Indentation
+set expandtab               " converts tabs to white space
+set tabstop=4               " number of columns occupied by a tab
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set shiftwidth=0            " width for autoindents, auto match tabstop
+set autoindent              " indent a new line the same amount as the line just typed
+
+" Backup
+if !isdirectory($HOME . "/.cache/vim")
+    call mkdir($HOME . "/.cache/vim", "p")
+endif
+set backup
+set backupdir=~/.cache/vim " Directory to store backup files.
+
 
 """""""""""""""""""""""""
 " Theme Setting         "
@@ -60,39 +97,6 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme dracula
-
-
-"""""""""""""""""""""""""
-" Config                "
-"""""""""""""""""""""""""
-set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching bracket
-set ignorecase              " case insensitive search
-set smartcase               " case sensitive search if search contain upper
-set hlsearch                " highlight search
-set incsearch               " incremental search
-set mouse=av                " middle-click paste with
-set tabstop=4               " number of columns occupied by a tab
-set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
-set expandtab               " converts tabs to white space
-set shiftwidth=0            " width for autoindents, auto match tabstop
-set autoindent              " indent a new line the same amount as the line just typed
-set number                  " add line numbers
-set wildmode=longest,list   " get bash-like tab completions in command mode
-set cc=80                   " set an 80 column border for good coding style
-filetype plugin indent on   " allow auto-indenting depending on file type
-set clipboard=unnamedplus   " using system clipboard
-set cursorline              " highlight current cursorline
-set ttyfast                 " Speed up scrolling in Vim
-set spell                   " enable spell check (may need to download language package)
-" open new split panes to right and below
-set splitright
-set splitbelow
-if !isdirectory($HOME . "/.cache/vim")
-    call mkdir($HOME . "/.cache/vim", "p")
-endif
-set backup
-set backupdir=~/.cache/vim " Directory to store backup files.
 
 
 """""""""""""""""""""""""
