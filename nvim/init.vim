@@ -112,10 +112,10 @@ set spell                   " enable spell check (may need to download language 
 " open new split panes to right and below
 set splitright
 set splitbelow
-set backup
-if !isdirectory($HOME."/.cache/vim")
-    silent! execute "!mkdir -p /.cache/vim"
+if !isdirectory($HOME . "/.cache/vim")
+    call mkdir($HOME . "/.cache/vim", "p")
 endif
+set backup
 set backupdir=~/.cache/vim " Directory to store backup files.
 
 
