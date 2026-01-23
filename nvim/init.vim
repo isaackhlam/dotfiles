@@ -48,9 +48,12 @@ Plug 'ap/vim-css-color'
 " Document Editing      "
 """""""""""""""""""""""""
 " MD preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown']}
 " CSV file
-Plug 'chrisbra/csv.vim'
+Plug 'chrisbra/csv.vim', { 'for': 'csv'}
+" LaTeX
+Plug 'lervag/vimtex', { 'for': 'tex' }
+
 
 """""""""""""""""""""""""
 " Others                "
@@ -94,14 +97,6 @@ set hlsearch                " highlight search
 set incsearch               " incremental search
 set mouse=av                " middle-click paste with
 set tabstop=4               " number of columns occupied by a tab
-autocmd Filetype css setlocal tabstop=2
-autocmd Filetype vue setlocal tabstop=2
-autocmd Filetype javascript setlocal tabstop=2
-autocmd Filetype javascriptreact setlocal tabstop=2
-autocmd Filetype typescript setlocal tabstop=2
-autocmd Filetype typescriptreact setlocal tabstop=2
-autocmd Filetype perl setlocal tabstop=2
-autocmd Filetype r setlocal tabstop=2
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
 set shiftwidth=0            " width for autoindents, auto match tabstop
