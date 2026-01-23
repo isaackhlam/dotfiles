@@ -1,69 +1,45 @@
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " Declare the list of plugins.
 
-"""""""""""""""""""""""
-" Basic plugin        "
-"""""""""""""""""""""""
+" Core
 Plug 'tpope/vim-sensible'
 Plug 'christoomey/vim-tmux-navigator'
-" Git Integrate
+
+" Git
 Plug 'tpope/vim-fugitive'
-" Git Diff status on left gutter
 Plug 'airblade/vim-gitgutter'
 
-"""""""""""""""""""""""""
-" Beautify              "
-"""""""""""""""""""""""""
-" Start Screen
+" UI
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-" Theme
 Plug 'dracula/vim'
 
-"""""""""""""""""""""""""
-" File Related          "
-"""""""""""""""""""""""""
-" File management
+" File tree
 Plug 'scrooloose/nerdtree'
-" File Icon
 Plug 'ryanoasis/vim-devicons'
 
-"""""""""""""""""""""""""
-" Edit Related          "
-"""""""""""""""""""""""""
-" Comment
+" Editing
 Plug 'preservim/nerdcommenter'
-" Move line
 Plug 'matze/vim-move'
-" White Space
 Plug 'ntpeters/vim-better-whitespace'
-" See indent
 Plug 'preservim/vim-indent-guides'
-" Surround
 Plug 'tpope/vim-surround'
-" color code background
 Plug 'ap/vim-css-color'
 
-"""""""""""""""""""""""""
-" Document Editing      "
-"""""""""""""""""""""""""
-" MD preview
+" Search
+Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown']}
-" CSV file
-Plug 'chrisbra/csv.vim', { 'for': 'csv'}
+" CSV
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 " LaTeX
 Plug 'lervag/vimtex', { 'for': 'tex' }
 
-
-"""""""""""""""""""""""""
-" Others                "
-"""""""""""""""""""""""""
-" Global Search
-Plug 'mileszs/ack.vim'
-" fuzzy search
-Plug 'ctrlpvim/ctrlp.vim'
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
