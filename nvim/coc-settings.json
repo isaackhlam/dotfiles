@@ -1,0 +1,4 @@
+{
+  "suggest.noselect": false,
+  "python.pythonPath": "$HOME/.config/nvim/detectPython.sh"
+}
