@@ -1,0 +1,26 @@
+---
+- name: Install local terminal's terminfo on remote host
+  hosts: all
+  gather_facts: false
+
+  vars:
+    term: "{{ lookup('env', 'TERM') }}"
+
+  tasks:
+    - name: Export local terminfo
+      ansible.builtin.command:
+        argv:
+          - infocmp
+          - -x
+          - "{{ term }}"
+      delegate_to: localhost
+      register: terminfo
+      changed_when: false
+
+    - name: Install terminfo for remote user
+      ansible.builtin.command:
+        argv:
+          - tic
+          - -x
+          - "-"
+        stdin: "{{ terminfo.stdout }}"
